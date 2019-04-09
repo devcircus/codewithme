@@ -35,4 +35,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * A User has many created sessions.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function createdSessions()
+    {
+        return $this->hasMany(Session::class, 'creator_id');
+    }
+
+    /**
+     * A User belongs to many paired sessions.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function pairedSessions()
+    {
+        return $this->belongsToMany(Session::class)->withPivot('confirmed');
+    }
 }
