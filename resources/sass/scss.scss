@@ -1,0 +1,16 @@
+@tailwind base;
+
+@tailwind components;
+
+/*** Add custom components */
+@import "components/main";
+
+/*** Add vendor styles */
+@import "vendor/vendor";
+
+@tailwind utilities;
+
+/**
+ * Add custom utilities
+ */
+ @import "utilities/main";

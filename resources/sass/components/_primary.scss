@@ -1,0 +1,26 @@
+//--------------------General Styles--------------------//
+html {
+  overflow-y: scroll;
+}
+
+//--------------------Link Styles--------------------//
+a {
+  @apply relative no-underline;
+}
+
+a::after {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a > svg, span > svg {
+    pointer-events: none;
+}
+
+//--------------------Borders and Shadows Styles--------------------//
+.shadow-offset {
+    box-shadow: 0 -2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
