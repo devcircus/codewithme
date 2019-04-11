@@ -1,3 +1,5 @@
+import Inertia from 'inertia-vue';
+import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import store from 'JS/store';
 
@@ -5,12 +7,14 @@ import store from 'JS/store';
 import Dispatchable from 'Mixins/Dispatchable';
 import Dates from 'Mixins/Dates';
 
+// Use ziggy route mixin
+Vue.mixin({ methods: { route: window.route } });
+
+// Use PortalVue
+Vue.use(PortalVue);
+
 Vue.mixin(Dispatchable);
 Vue.mixin(Dates);
-
-// Register all the Vue components
-const files = require.context('../../', true, /\.vue$/i);
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 // Use Vue-Stash for state management
 import VueStash from 'vue-stash';
@@ -38,7 +42,16 @@ Vue.filter('ucase', function (value) {
     return value ? value.toUpperCase() : '';
 });
 
+let app = document.getElementById('app')
 new Vue({
-    el: '#base-app',
-    data: { store },
-});
+    render: h => h(Inertia, {
+        props: {
+            component: app.dataset.component,
+            props: JSON.parse(app.dataset.props),
+            resolveComponent: (component) => {
+                return import(`@/Pages/${component}`).then(module => module.default)
+            },
+        },
+        data: { store },
+    }),
+}).$mount(app);

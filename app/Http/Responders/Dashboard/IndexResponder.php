@@ -2,6 +2,7 @@
 
 namespace App\Http\Responders\Dashboard;
 
+use Inertia\Inertia;
 use PerfectOblivion\Responder\Responder;
 
 class IndexResponder extends Responder
@@ -13,7 +14,8 @@ class IndexResponder extends Responder
      */
     public function respond()
     {
-        return response()->viewWithPayload('dashboard', $this->payload, 'users');
+        return Inertia::render('Dashboard/Index');
+        // return response()->viewWithPayload('dashboard', $this->payload, 'users');
         // return response()->jsonWithPayload($this->payload);
     }
 }

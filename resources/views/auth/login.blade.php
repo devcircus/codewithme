@@ -9,13 +9,13 @@
             <!--Email Field-->
             <div class="mb-4">
                 <div class="flex w-4/5 justify-between accessible-input-container mx-auto py-1 mb-1">
-                    <input v-model="email" class="w-full appearance-none bg-transparent border-none text-grey-900 p-1 accessible-input" autocomplete="username email" type="email" placeholder="janedoe@email.com" name="email" id="email" aria-label="Email">
+                    <input v-model="email" class="w-full appearance-none bg-transparent border-none text-gray-900 p-1 accessible-input" autocomplete="username email" type="email" placeholder="janedoe@email.com" name="email" id="email" aria-label="Email">
                 </div>
-                <label class="block w-4/5 mx-auto text-grey-900 text-left text-sm font-bold" for="email">
+                <label class="block w-4/5 mx-auto text-gray-900 text-left text-sm font-bold" for="email">
                     @if ($errors->has('email'))
                     <span class="text-red-300 text-xs italic ml-2">{{ $errors->first('email') }}</span>
                     @else
-                    <span v-else class="text-sm text-grey-900">{{ __('Email') }}</span>
+                    <span v-else class="text-sm text-gray-900">{{ __('Email') }}</span>
                     @endif
                 </label>
             </div>
@@ -23,21 +23,21 @@
             <!--Password Field-->
             <div class="mb-4">
                 <div class="flex w-4/5 justify-between accessible-input-container mx-auto py-1 mb-1">
-                    <input v-model="password" class="w-full appearance-none bg-transparent border-none text-grey-900 p-1 accessible-input" autocomplete="current-password" type="password" placeholder="**********************" name="password" id="password" aria-label="Password">
+                    <input v-model="password" class="w-full appearance-none bg-transparent border-none text-gray-900 p-1 accessible-input" autocomplete="current-password" type="password" placeholder="**********************" name="password" id="password" aria-label="Password">
                     <span class="icon-lock-closed text-green-500"></span>
                 </div>
-                <label class="block w-4/5 mx-auto text-grey-900 text-left text-sm font-bold" for="password">
+                <label class="block w-4/5 mx-auto text-gray-900 text-left text-sm font-bold" for="password">
                     @if ($errors->has('password'))
                     <span class="text-red-300 text-xs italic ml-2">{{ $errors->first('password') }}</span>
                     @else
-                    <span v-else class="text-sm text-grey-900">{{ __('Password') }}</span>
+                    <span v-else class="text-sm text-gray-900">{{ __('Password') }}</span>
                     @endif
                 </label>
             </div>
 
             <!--Remember Me-->
             <div class="w-4/5 mx-auto mb-4 text-left mt-4">
-                <label class="block text-grey-500 font-bold">
+                <label class="block text-gray-500 font-bold">
                     <input class="mr-2 text-green-500" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                     <label class="text-sm" for="remember">
                         {{ __('Remember Me') }}
@@ -51,13 +51,13 @@
                     Sign In
                 </button>
                 @if (Route::has('password.request'))
-                <a class="text-sm text-grey-500 font-light no-underline" href="{{ route('password.request') }}">
+                <a class="text-sm text-gray-500 font-light no-underline" href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
                 @endif
             </div>
         </form>
-        <p class="text-center text-grey-500 text-xs mb-4">
+        <p class="text-center text-gray-500 text-xs mb-4">
             {{ date('Y') }} MySite All rights reserved.
         </p>
     </div>

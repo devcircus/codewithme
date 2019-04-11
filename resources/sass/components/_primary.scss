@@ -6,6 +6,7 @@ html {
 //--------------------Link Styles--------------------//
 a {
   @apply relative no-underline;
+  color: inherit;
 }
 
 a::after {

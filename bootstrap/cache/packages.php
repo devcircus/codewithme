@@ -24,6 +24,13 @@
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
+  'inertiajs/inertia-laravel' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Inertia\\InertiaServiceProvider',
+    ),
+  ),
   'laravel/horizon' => 
   array (
     'providers' => 
@@ -96,6 +103,13 @@
     'providers' => 
     array (
       0 => 'PerfectOblivion\\Valid\\ValidServiceProvider',
+    ),
+  ),
+  'tightenco/ziggy' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Tightenco\\Ziggy\\ZiggyServiceProvider',
     ),
   ),
   'waavi/sanitizer' => 

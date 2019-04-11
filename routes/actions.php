@@ -1,4 +1,8 @@
 <?php
 
 Route::redirect('/', '/dashboard');
-Route::get('/dashboard', Dashboard\Index::class)->middleware(['auth']);
+
+Route::group(['middleware' => ['auth']], function ($route) {
+    // Dashboard
+    $route->get('/dashboard', Dashboard\Index::class)->name('dashboard');
+});
