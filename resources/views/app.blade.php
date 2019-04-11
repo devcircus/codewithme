@@ -13,12 +13,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/scss.css') }}" rel="stylesheet">
+
+    <!-- Include Laravel routes via JS -->
+    @routes
 </head>
 
 <body class="font-lato bg-blue-100 h-screen">
-    <div id="base-app" class="h-full">
-        @yield('content')
-    </div>
+    <div id="app" data-component="{{ $component }}" data-props="{{ json_encode((object) $props) }}"></div>
 
     <!-- Site Scripts -->
     <script src="{{ asset('js/js.js') }}"></script>

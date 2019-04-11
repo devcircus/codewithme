@@ -174,6 +174,9 @@ return [
         App\Providers\HorizonServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ExtensionsServiceProvider::class,
+        App\Providers\DateServiceProvider::class,
+        App\Providers\PaginationServiceProvider::class,
+        App\Providers\InertiaServiceProvider::class,
     ],
 
     /*
