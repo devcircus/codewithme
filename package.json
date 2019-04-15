@@ -12,6 +12,8 @@
     "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "axios": "^0.18",
+        "babel-loader": "^8.0.5",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "bootstrap": "^4.0.0",
         "config": "^3.0.1",
         "cross-env": "^5.1",

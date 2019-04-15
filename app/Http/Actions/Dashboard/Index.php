@@ -2,6 +2,7 @@
 
 namespace App\Http\Actions\Dashboard;
 
+use Illuminate\Http\Request;
 use PerfectOblivion\Actions\Action;
 use App\Services\Dashboard\IndexService;
 use App\Http\Responders\Dashboard\IndexResponder;
@@ -26,7 +27,7 @@ class Index extends Action
      *
      * @return \Illuminate\View\View
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         return $this->responder->withPayload(IndexService::call());
     }

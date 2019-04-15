@@ -3,11 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -18,7 +15,7 @@
     @routes
 </head>
 
-<body class="font-lato bg-blue-100 h-screen">
+<body class="font-sans leading-none text-grey-900 antialiased">
     <div id="app" data-component="{{ $component }}" data-props="{{ json_encode((object) $props) }}"></div>
 
     <!-- Site Scripts -->

@@ -49,6 +49,10 @@ input, select, textarea, button, div, a {
   @apply .text-red-500 .mt-2 .text-sm;
 }
 
+.form-message {
+  @apply .text-green-500 .mt-2 .text-sm;
+}
+
 .form-input.error,
 .form-textarea.error,
 .form-select.error {
