@@ -6,6 +6,7 @@ import store from 'JS/store';
 // Use Global Mixins
 import Dispatchable from 'Mixins/Dispatchable';
 import Dates from 'Mixins/Dates';
+import HasNotifications from 'Mixins/HasNotifications';
 
 // Use ziggy route mixin
 Vue.mixin({ methods: { route: window.route } });
@@ -15,6 +16,7 @@ Vue.use(PortalVue);
 
 Vue.mixin(Dispatchable);
 Vue.mixin(Dates);
+Vue.mixin(HasNotifications);
 
 // Use Vue-Stash for state management
 import VueStash from 'vue-stash';
@@ -52,6 +54,6 @@ new Vue({
                 return import(`@/Pages/${component}`).then(module => module.default)
             },
         },
-        data: { store },
     }),
+    data: { store },
 }).$mount(app);

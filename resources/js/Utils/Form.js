@@ -31,7 +31,6 @@ class Form {
             then(response.data)
         }).catch(error => {
             this.sending = false
-
             if (error.response && error.response.status === 422) {
                 this.errors.record(error.response.data.errors)
             } else {

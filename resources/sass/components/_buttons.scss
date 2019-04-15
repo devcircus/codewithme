@@ -1,8 +1,15 @@
 button:focus {
     outline: 0;
 }
-.btn-indigo-500 {
+
+.btn-indigo {
   @apply px-6 py-3 rounded bg-indigo-700 text-white text-sm font-bold whitespace-no-wrap;
 
   &:hover, &:focus { @apply bg-orange-500 }
+}
+
+.btn-flat {
+  @apply px-6 py-3 rounded border border-gray-300 rounded text-gray-500 text-sm font-bold whitespace-no-wrap;
+
+  &:hover, &:focus { @apply bg-gray-500 text-white }
 }

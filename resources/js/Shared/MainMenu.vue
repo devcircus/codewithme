@@ -1,29 +1,23 @@
 <template>
     <div>
         <div class="mb-4">
-            <inertia-link class="flex items-center group py-3" :href="route('dashboard')">
-                <icon name="dashboard" class="w-4 h-4 mr-2" :class="isUrl('') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-                <div :class="isUrl('') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Dashboard</div>
+            <inertia-link class="flex items-center py-3 hover-white" :class="isUrl('dashboard') ? 'text-white' : 'text-indigo-200'" :href="route('dashboard')">
+                <icon name="dashboard" class="w-4 h-4 mr-2 fill-current" />
+                <div class="font-semibold">Dashboard</div>
+            </inertia-link>
+        </div>
+        <!-- <div class="mb-4">
+            <inertia-link class="flex items-center py-3 hover-white" :class="isUrl('sessions') ? 'text-white' : 'text-indigo-200'" :href="route('sessions')">
+                <icon name="office" class="w-4 h-4 mr-2 fill-current" />
+                <div class="font-semibold">My Sessions</div>
             </inertia-link>
         </div>
         <div class="mb-4">
-            <inertia-link class="flex items-center group py-3" href="#">
-                <icon name="office" class="w-4 h-4 mr-2" :class="isUrl('organizations') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-                <div :class="isUrl('organizations') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Organizations</div>
+            <inertia-link class="flex items-center py-3 hover-white" :class="isUrl('friends') ? 'text-white' : 'text-indigo-200'" :href="route('friends')">
+                <icon name="users" class="w-4 h-4 mr-2 fill-current" />
+                <div class="font-semibold">Friends</div>
             </inertia-link>
-        </div>
-        <div class="mb-4">
-            <inertia-link class="flex items-center group py-3" href="#">
-                <icon name="users" class="w-4 h-4 mr-2" :class="isUrl('contacts') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-                <div :class="isUrl('contacts') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Contacts</div>
-            </inertia-link>
-        </div>
-        <div class="mb-4">
-            <inertia-link class="flex items-center group py-3" href="#">
-                <icon name="printer" class="w-4 h-4 mr-2" :class="isUrl('reports') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-                <div :class="isUrl('reports') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Reports</div>
-            </inertia-link>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -32,18 +26,28 @@ import { InertiaLink } from 'inertia-vue'
 import Icon from '@/Shared/Icon'
 
 export default {
-  components: {
-    InertiaLink,
-    Icon,
-  },
-  methods: {
-    isUrl (...urls) {
-      if (urls[0] === '') {
-        return location.pathname.substr(1) === ''
-      }
-
-      return urls.filter(url => location.pathname.substr(1).startsWith(url)).length
+    components: {
+        InertiaLink,
+        Icon,
     },
-  },
+    methods: {
+        isUrl (...urls) {
+            if (urls[0] === '') {
+                return location.pathname.substr(1) === ''
+            }
+            console.log(location.pathname.substr(1));
+
+            return urls.filter(url => location.pathname.substr(1).startsWith(url)).length
+        },
+    },
 }
 </script>
+
+<style lang="scss" scoped>
+    .hover-white:hover {
+        color: white;
+    }
+    .hover-white:hover svg, .hover-white:hover path {
+        fill: white;
+    }
+</style>

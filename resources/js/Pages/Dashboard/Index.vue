@@ -1,16 +1,19 @@
 <template>
     <layout>
-        <h1>Welcome</h1>
-        <p>Welcome to my first Inertia.js app!</p>
+        <cards>
+            <cards></cards>
+        </cards>
     </layout>
 </template>
 
 <script>
 import Layout from '@/Shared/Layout'
+import Cards from '@/Shared/Cards'
 
 export default {
   components: {
     Layout,
+    Cards,
   },
 }
 </script>
