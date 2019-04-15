@@ -15,6 +15,11 @@ class InertiaServiceProvider extends ServiceProvider
     public function register()
     {
         Inertia::share('app.name', Config::get('app.name'));
+        Inertia::share('active', function () {
+            $active = explode('/', request()->path())[0] ?? '';
+
+            return ucfirst($active);
+        });
         Inertia::share('auth.user', function () {
             if (Auth::user()) {
                 return [
