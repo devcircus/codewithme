@@ -14,6 +14,9 @@ class InertiaServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        Inertia::version(function () {
+            return md5_file(public_path('mix-manifest.json'));
+        });
         Inertia::share('app.name', Config::get('app.name'));
         Inertia::share('active', function () {
             $active = explode('/', request()->path())[0] ?? '';

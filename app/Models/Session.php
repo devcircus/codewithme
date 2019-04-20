@@ -2,8 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
+
 class Session extends Unguarded
 {
+    /** @var array */
+    protected $dates = ['session_date'];
+
+    /** @var array */
+    public $appends = [
+        'display_date',
+    ];
+
     /**
      * A Session belongs to many paired developers.
      *
@@ -22,5 +32,15 @@ class Session extends Unguarded
     public function creator()
     {
         return $this->belongsTo(User::class, 'creator_id');
+    }
+
+    /**
+     * Get the session date in displayable format.
+     *
+     * @return string
+     */
+    public function getDisplayDateAttribute()
+    {
+        return Carbon::parse($this->attributes['session_date'])->format('l, F jS, g:i a');
     }
 }

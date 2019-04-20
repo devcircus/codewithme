@@ -15,6 +15,7 @@ $factory->define(Session::class, function (Faker $faker) {
         'devs_needed' => rand(1, 3),
         'language' => $languages[rand(0, 13)],
         'creator_id' => factory(User::class),
+        'session_date' => $faker->dateTimeBetween('-30 days', '+60 days'),
     ];
 });
 

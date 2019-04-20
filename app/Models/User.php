@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -54,5 +55,45 @@ class User extends Authenticatable
     public function pairedSessions()
     {
         return $this->belongsToMany(Session::class)->withPivot('confirmed');
+    }
+
+    /**
+     * Get the upcoming sessions created by the User.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function upcomingCreatedSessions()
+    {
+        return $this->createdSessions->where('session_date', '>', Carbon::now());
+    }
+
+    /**
+     * Get the upcoming sessions joined by the User.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function upcomingPairedSessions()
+    {
+        return $this->pairedSessions->where('session_date', '>', Carbon::now());
+    }
+
+    /**
+     * Get the next created session for the user.
+     *
+     * @return \App\Models\Session
+     */
+    public function nextCreatedSession()
+    {
+        return $this->createdSessions->sortBy('session_date')->first();
+    }
+
+    /**
+     * Get the next paired session for the user.
+     *
+     * @return \App\Models\Session
+     */
+    public function nextPairedSession()
+    {
+        return $this->pairedSessions->sortBy('session_date')->first();
     }
 }

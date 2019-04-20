@@ -2,6 +2,7 @@
 
 namespace App\Services\Dashboard;
 
+use Illuminate\Support\Facades\Auth;
 use PerfectOblivion\Payload\Payload;
 use PerfectOblivion\Services\Traits\SelfCallingService;
 
@@ -29,19 +30,11 @@ class IndexService
      */
     public function run()
     {
-        $users = [
-            [
-                'name' => 'Clay',
-                'age' => 42,
-            ],
-            [
-                'name' => 'John',
-                'age' => 36,
-            ],
-        ];
-
         return $this->payload
-                   ->setOutput($users)
+                   ->setOutput([
+                       'created' => Auth::user()->upcomingCreatedSessions(),
+                       'joined' => Auth::user()->upcomingPairedSessions(),
+                ], 'sessions')
                    ->setStatus($this->payload::STATUS_OK);
     }
 }

@@ -18,6 +18,7 @@ class CreateSessionsTable extends Migration
             $table->integer('devs_needed')->default(1);
             $table->string('language');
             $table->bigInteger('creator_id')->unsigned();
+            $table->dateTime('session_date');
             $table->timestamps();
 
             $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
