@@ -2,6 +2,7 @@
 
 namespace App\Http\Actions\Auth\PasswordResetRequest;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use PerfectOblivion\Actions\Action;
 use Illuminate\Support\Facades\Password;
@@ -56,11 +57,13 @@ class SendEmail extends Action
      */
     protected function sendResetLinkFailedResponse(Request $request, $response)
     {
+        $key = Str::after($response, '.');
+
         return Response::json([
             'email' => $request->only('email'),
             'errors' => [
-                'email' => trans($response),
+                $key => trans($response),
             ],
-        ]);
+        ], 422);
     }
 }
