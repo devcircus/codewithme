@@ -14,7 +14,7 @@ class IndexResponder extends Responder
      */
     public function respond()
     {
-        return Inertia::render('Dashboard/Index');
+        return Inertia::render('Dashboard/Index', $this->payload->getWrappedOutput());
         // return response()->viewWithPayload('dashboard', $this->payload, 'users');
         // return response()->jsonWithPayload($this->payload);
     }

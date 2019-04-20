@@ -17,7 +17,7 @@ module.exports = {
                     'Helvetica Neue',
                     'sans-serif',
                 ],
-            }
+            },
         },
         fill: theme => ({
             current: 'currentColor',
@@ -49,9 +49,38 @@ module.exports = {
             'red-800': theme('colors.red.800'),
             'red-900': theme('colors.red.900'),
         }),
+        width: theme => ({
+            auto: 'auto',
+            ...theme('spacing'),
+            '1/2': '50%',
+            '1/3': '33.33333%',
+            '2/3': '66.66667%',
+            '1/4': '25%',
+            '3/4': '75%',
+            '1/5': '20%',
+            '2/5': '40%',
+            '3/5': '60%',
+            '4/5': '80%',
+            '1/6': '16.66667%',
+            '5/6': '83.33333%',
+            '1/7': '14.286%',
+            '2/7': '28.572%',
+            '3/7': '42.858%',
+            '4/7': '57.144%',
+            '5/7': '71.43%',
+            '6/7': '85.716%',
+            full: '100%',
+            screen: '100vw',
+        }),
+        minHeight: {
+            '0': '0',
+            full: '100%',
+            screen: '100vh',
+        }
     },
     variants: {
-    // Some useful comment
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+        fill: ['hover', 'focus', 'group-hover'],
     },
     plugins: [
     // Some useful comment

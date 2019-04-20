@@ -16,7 +16,7 @@
 </head>
 
 <body class="font-sans leading-none text-grey-900 antialiased">
-    <div id="app" data-component="{{ $component }}" data-props="{{ json_encode((object) $props) }}"></div>
+    <div id="app" data-component="{{ $page['component'] }}" data-props="{{ json_encode((object) $page['props']) }}" data-page="{{ json_encode((object) $page) }}"></div>
 
     <!-- Site Scripts -->
     <script src="{{ asset('js/js.js') }}"></script>

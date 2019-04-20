@@ -4,6 +4,7 @@
             <form class="mt-8 bg-white rounded-lg shadow-lg overflow-hidden" @submit.prevent="submit">
                 <div class="px-10 py-12">
                     <logo class="block mx-auto w-3/5 max-w-xs fill-white" height="50" />
+                    <h1 class="text-center font-semibold text-xl text-gray-700 uppercase p-4">Login</h1>
                     <div class="mx-auto mt-6 w-24 border-b-2" />
                     <text-input v-model="form.fields.email" class="mt-10" label="Email" :error="form.errors.first('email')" type="email" autofocus autocapitalize="off" />
                     <text-input v-model="form.fields.password" class="mt-6" label="Password" :error="form.errors.first('password')" type="password" />

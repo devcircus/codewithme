@@ -12,7 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        factory(User::class)->states('admin')->create();
-        factory(Session::class, 10)->create();
+        $admin = factory(User::class)->states('admin')->create();
+
+        factory(Session::class, 3)->create(['creator_id' => $admin->id]);
+
+        $sessions = factory(Session::class, 10)->create();
+
+        $admin->pairedSessions()->sync([2, 4, 6]);
     }
 }

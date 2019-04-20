@@ -35,4 +35,5 @@ mix.sass('resources/sass/scss.scss', 'public/css')
       },
       devtool: 'inline-source-map',
    })
-   .sourceMaps();
+   .sourceMaps()
+   .version();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Actions\Auth\PasswordReset;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use PerfectOblivion\Actions\Action;
 use Illuminate\Support\Facades\Password;
@@ -67,10 +68,12 @@ class Update extends Action
      */
     protected function sendResetFailedResponse(Request $request, $response)
     {
+        $key = Str::after($response, '.');
+
         return Response::json([
             'email' => $request->only('email'),
             'errors' => [
-                'token' => trans($response),
+                $key => trans($response),
             ],
         ], 422);
     }

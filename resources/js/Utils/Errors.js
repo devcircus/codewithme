@@ -20,11 +20,15 @@ class Errors {
     }
 
     first (field) {
-        return this.get(field)[0]
+        if (Array.isArray(this.errors[field])) {
+            return this.get(field)[0] || null
+        }
+
+        return this.get(field) || null
     }
 
     get (field) {
-        return this.errors[field] || []
+        return this.errors[field] || null
     }
 }
 
