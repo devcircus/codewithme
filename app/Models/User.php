@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -64,7 +63,7 @@ class User extends Authenticatable
      */
     public function upcomingCreatedSessions()
     {
-        return $this->createdSessions->where('session_date', '>', Carbon::now());
+        return $this->createdSessions()->upcoming()->get();
     }
 
     /**
@@ -74,7 +73,7 @@ class User extends Authenticatable
      */
     public function upcomingPairedSessions()
     {
-        return $this->pairedSessions->where('session_date', '>', Carbon::now());
+        return $this->pairedSessions()->upcoming()->get();
     }
 
     /**
