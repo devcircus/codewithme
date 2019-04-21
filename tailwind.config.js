@@ -83,6 +83,6 @@ module.exports = {
         fill: ['hover', 'focus', 'group-hover'],
     },
     plugins: [
-    // Some useful comment
-    ]
+        require('./resources/js/lib/tailwindcss/plugins/tables')(),
+    ],
 }
