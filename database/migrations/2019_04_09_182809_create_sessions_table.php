@@ -17,6 +17,7 @@ class CreateSessionsTable extends Migration
             $table->text('description');
             $table->integer('devs_needed')->default(1);
             $table->string('language');
+            $table->string('language_color')->nullable();
             $table->bigInteger('creator_id')->unsigned();
             $table->dateTime('session_date');
             $table->timestamps();
