@@ -31,10 +31,10 @@ class IndexService
     public function run()
     {
         return $this->payload
-                   ->setOutput([
-                       'created' => Auth::user()->upcomingCreatedSessions(),
-                       'joined' => Auth::user()->upcomingPairedSessions(),
-                ], 'sessions')
-                   ->setStatus($this->payload::STATUS_OK);
+            ->setOutput([
+                'created' => Auth::user()->createdSessions()->upcoming()->paginate(4, ['*'], 'created'),
+                'joined' => Auth::user()->pairedSessions()->upcoming()->paginate(4, ['*'], 'joined'),
+        ], 'sessions')
+            ->setStatus($this->payload::STATUS_OK);
     }
 }
